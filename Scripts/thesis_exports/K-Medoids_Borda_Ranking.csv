@@ -1,0 +1,14 @@
+Distance Metric,Total Borda Score
+earth_movers,192.0
+cosine,180.0
+bhattacharyya,162.0
+kl_divergence,147.0
+total_variation,127.0
+euclidean,112.5
+minkowski,112.5
+canberra,99.0
+braycurtis,96.0
+manhattan,94.0
+jensen_shannon,83.0
+chebyshev,57.0
+hamming,26.0

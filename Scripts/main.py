@@ -1,103 +1,148 @@
-import pandas as pd
 import os
-from preprocessing import preprocess_for_pairwise
+import pandas as pd
+import warnings
 
-# UNIFIED CONFIGURATION DICTIONARY
-MASTER_CONFIG = {
-    "balanced": {
-        "bupa_lr_lc.csv": {"target": "selector", "drop_cols": []},
-        "Heart_disease_lr_mc.csv": {"target": "target", "drop_cols": []},
-        "vehicle_lr_hc.csv": {"target": "class", "drop_cols": []},
-        "contaceptive_mr_lc.csv": {"target": "Contraceptive_Method", "drop_cols": []},
-        "Retinopathy_Debrecen_mr_hc.csv": {"target": "class", "drop_cols": []},
-        "Wine_mr_mc.csv": {"target": "quality", "drop_cols": ["Id"]},
-        "abalone_hr_lc.csv": {"target": "Rings", "drop_cols": []},
-        "EEG_Eye_State_hr_mc.csv": {"target": "eyeDetection", "drop_cols": []},
-        "letter-recognition_hr_hc.csv": {"target": "letter", "drop_cols": []}
-    },
-    "imbalanced": {
-        "climate_model_crashes_lr_hc.csv": {"target": "outcome", "drop_cols": ["Study", "Run"]},
-        "ecoli_lr_lc.csv": {"target": "class", "drop_cols": ["sequence_name"]},
-        "Indian_Liver_Patient_lr_mc.csv": {"target": "is_patient", "drop_cols": []},
-        "german_credit_data_mr_hc.csv": {"target": "kredit", "drop_cols": []},
-        "solar_flare_mr_mc.csv": {"target": "severe flares", "drop_cols": []},
-        "yeast_mr_lc.csv": {"target": "name", "drop_cols": []},
-        "HTRU_2_hr_lc.csv": {"target": "class", "drop_cols": []},
-        "online_shoppers_intention_hr_hc.csv": {"target": "Revenue", "drop_cols": []},
-        "page_blocks_classification_hr_mc.csv": {"target": "class", "drop_cols": []}
-    }
-}
+# Import your pipelines and configurations
+from preprocessing import MASTER_CONFIG
+from distances import compute_distance_matrix
+from supervised_pipeline import evaluate_supervised
+from unsupervised_pipeline import evaluate_unsupervised
 
-def process_datasets(dataset_category="balanced", encoding_method="onehot"):
-    """
-    Processes a specific category of datasets (e.g., 'balanced' or 'imbalanced')
-    """
+# Suppress minor warnings for cleaner console output
+warnings.filterwarnings('ignore')
+
+# Define which metrics go to which datasets
+GEOMETRIC_METRICS = [
+    "euclidean", "manhattan", "minkowski", "chebyshev", 
+    "canberra", "braycurtis", "hamming", "cosine"
+]
+
+PROBABILISTIC_METRICS = [
+    "earth_movers", "kl_divergence", "jensen_shannon", 
+    "bhattacharyya", "total_variation"
+]
+
+def load_and_split(filepath, config):
+    """Loads a CSV, drops garbage columns, and splits into X and y."""
+    if not os.path.exists(filepath):
+        return None, None
+        
+    df = pd.read_csv(filepath).dropna()
+    
+    # Drop config-defined garbage columns if they exist
+    for col in config.get("drop_cols", []):
+        if col in df.columns:
+            df = df.drop(columns=[col])
+            
+    target_col = config["target"]
+    if target_col not in df.columns:
+        return None, None
+        
+    y = df[target_col].copy()
+    X = df.drop(columns=[target_col]).copy()
+    return X, y
+
+def run_experiments():
     script_dir = os.path.dirname(os.path.abspath(__file__))
+    all_results = []
     
-    # Dynamically point to ../datasets/balanced OR ../datasets/imbalanced
-    input_dir = os.path.join(script_dir, f'../datasets/{dataset_category}')
-    
-    # Create an output directory like ../datasets/output_balanced/slack_onehot
-    out_dir = os.path.join(script_dir, f'../datasets/output_{dataset_category}/slack_{encoding_method}')
-    os.makedirs(out_dir, exist_ok=True)
-    
-    datasets = MASTER_CONFIG.get(dataset_category, {})
-    print(f"\n=======================================================")
-    print(f"Starting batch process for {len(datasets)} {dataset_category.upper()} datasets...")
-    print(f"Encoding method: '{encoding_method}'")
-    print(f"=======================================================\n")
-    
-    for filename, config in datasets.items():
-        print(f"--- Processing {filename} ---")
-        input_filepath = os.path.join(input_dir, filename)
+    print("\n=======================================================")
+    print("STARTING FULL PIPELINE EXECUTION")
+    print("=======================================================\n")
+
+    for category in ["balanced", "imbalanced"]:
+        datasets = MASTER_CONFIG.get(category, {})
         
-        if not os.path.exists(input_filepath):
-            print(f"  [!] File not found: {input_filepath}. Skipping.\n")
-            continue
-            
-        df = pd.read_csv(input_filepath)
+        # Define base directory paths
+        standard_dir = os.path.join(script_dir, f'../datasets/{category}_normalised')
+        slack_dir = os.path.join(script_dir, f'../datasets/output_{category}/slack_onehot')
         
-        # Clean NaNs initially
-        initial_rows = len(df)
-        df = df.dropna()
-        if len(df) < initial_rows:
-            print(f"  Dropped {initial_rows - len(df)} rows containing NaNs.")
+        for base_filename, config in datasets.items():
+            print(f"--- Processing {base_filename} ({category.upper()}) ---")
             
-        # Drop specific garbage columns defined in config
-        for col in config.get("drop_cols", []):
-            if col in df.columns:
-                df = df.drop(columns=[col])
-                
-        target_col = config["target"]
-        if target_col not in df.columns:
-            print(f"  [!] Error: Target column '{target_col}' not found. Skipping.\n")
-            continue
+            # 1. Paths (UPDATED TO MATCH YOUR FILE NAMES EXACTLY)
+            standard_filename = base_filename.replace('.csv', '_Geometric.csv')
+            standard_path = os.path.join(standard_dir, standard_filename)
             
-        try:
-            # Apply the shared slack variable methodology
-            y, X_processed = preprocess_for_pairwise(
-                df=df, 
-                label_col=target_col, 
-                encoding_method=encoding_method
-            )
+            slack_filename = base_filename.replace('.csv', '_Slack_onehot.csv')
+            slack_path = os.path.join(slack_dir, slack_filename)
             
-            # Recombine features and target
-            final_df = pd.concat([X_processed, y], axis=1)
+            # 2. Load Data
+            X_std, y_std = load_and_split(standard_path, config)
+            X_slk, y_slk = load_and_split(slack_path, config)
             
-            # Export
-            out_filename = filename.replace('.csv', f'_Slack_{encoding_method}.csv')
-            out_filepath = os.path.join(out_dir, out_filename)
-            final_df.to_csv(out_filepath, index=False)
-            
-            print(f"  Total features output: {len(X_processed.columns)}")
-            print(f"  Saved: {out_filename}\n")
-            
-        except Exception as e:
-            print(f"  [!] Failed to process {filename}: {e}\n")
+            if X_std is None or X_slk is None:
+                print(f"  [!] Missing files for {base_filename}. Skipping.")
+                # Optional: Print exactly what it couldn't find to help debug
+                if X_std is None: print(f"      -> Could not find: {standard_path}")
+                if X_slk is None: print(f"      -> Could not find: {slack_path}")
+                continue
+
+            # =========================================================
+            # PART A: GEOMETRIC METRICS (on Standard Normalised Data)
+            # =========================================================
+            for metric in GEOMETRIC_METRICS:
+                try:
+                    dist_matrix = compute_distance_matrix(X_std, metric)
+                    
+                    # Supervised
+                    sup_res = evaluate_supervised(dist_matrix, y_std, metric)
+                    # Unsupervised (pass X_std for DB/CH score calculations)
+                    unsup_res = evaluate_unsupervised(X_std, dist_matrix, y_std, metric)
+                    
+                    # Tag results with dataset info and merge
+                    for res in sup_res + unsup_res:
+                        res['Dataset'] = base_filename
+                        res['Category'] = category
+                        res['Metric Type'] = 'Geometric'
+                        all_results.append(res)
+                        
+                except Exception as e:
+                    print(f"  [!] Failed Geometric '{metric}': {e}")
+
+            # =========================================================
+            # PART B: PROBABILISTIC METRICS (on Slack Normalised Data)
+            # =========================================================
+            for metric in PROBABILISTIC_METRICS:
+                try:
+                    dist_matrix = compute_distance_matrix(X_slk, metric)
+                    
+                    # Supervised
+                    sup_res = evaluate_supervised(dist_matrix, y_slk, metric)
+                    # Unsupervised (pass X_slk for DB/CH score calculations)
+                    unsup_res = evaluate_unsupervised(X_slk, dist_matrix, y_slk, metric)
+                    
+                    # Tag results with dataset info and merge
+                    for res in sup_res + unsup_res:
+                        res['Dataset'] = base_filename
+                        res['Category'] = category
+                        res['Metric Type'] = 'Probabilistic'
+                        all_results.append(res)
+                        
+                except Exception as e:
+                    print(f"  [!] Failed Probabilistic '{metric}': {e}")
+                    
+            print(f"  [+] Completed {base_filename}\n")
+
+    # =========================================================
+    # EXPORT RESULTS
+    # =========================================================
+    if all_results:
+        results_df = pd.DataFrame(all_results)
+        
+        # Reorder columns so Dataset and Algorithm info are first
+        cols = ['Dataset', 'Category', 'Algorithm', 'Metric Type', 'Distance Metric']
+        remaining_cols = [c for c in results_df.columns if c not in cols]
+        results_df = results_df[cols + remaining_cols]
+        
+        output_path = os.path.join(script_dir, '../datasets/MASTER_THESIS_RESULTS.csv')
+        results_df.to_csv(output_path, index=False)
+        print(f"=======================================================")
+        print(f"SUCCESS! Master results saved to: {output_path}")
+        print(f"Total experiment configurations run: {len(results_df)}")
+        print("=======================================================")
+    else:
+        print("No results were generated. Check your file paths.")
 
 if __name__ == "__main__":
-    # You can process both folders back-to-back automatically!
-    process_datasets(dataset_category="balanced", encoding_method="onehot")
-    process_datasets(dataset_category="imbalanced", encoding_method="onehot")
-    
-    print("All 18 datasets processed successfully!")
+    run_experiments()

@@ -1,0 +1,14 @@
+Distance Metric,Total Borda Score
+canberra,175.0
+jensen_shannon,168.0
+manhattan,166.0
+braycurtis,165.0
+total_variation,147.0
+euclidean,146.0
+minkowski,146.0
+bhattacharyya,119.5
+cosine,88.0
+hamming,87.0
+kl_divergence,73.5
+earth_movers,62.0
+chebyshev,49.0
