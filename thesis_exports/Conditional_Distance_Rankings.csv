@@ -1,0 +1,433 @@
+Algorithm,Evaluation Metric,Dataset Condition,Rank,Distance Metric,Average Score
+DBSCAN,Adjusted Rand Index,Balanced (Low Imbalance),1,hamming,0.0071
+DBSCAN,Adjusted Rand Index,Balanced (Low Imbalance),2,chebyshev,0.0067
+DBSCAN,Adjusted Rand Index,Balanced (Low Imbalance),3,jensen_shannon,0.0064
+DBSCAN,Adjusted Rand Index,Features: High Columns,1,kl_divergence,0.0181
+DBSCAN,Adjusted Rand Index,Features: High Columns,2,hamming,0.016
+DBSCAN,Adjusted Rand Index,Features: High Columns,3,bhattacharyya,0.0041
+DBSCAN,Adjusted Rand Index,Features: Low Columns,1,euclidean,0.0266
+DBSCAN,Adjusted Rand Index,Features: Low Columns,2,minkowski,0.0266
+DBSCAN,Adjusted Rand Index,Features: Low Columns,3,total_variation,0.0262
+DBSCAN,Adjusted Rand Index,Features: Medium Columns,1,canberra,0.1054
+DBSCAN,Adjusted Rand Index,Features: Medium Columns,2,cosine,0.0709
+DBSCAN,Adjusted Rand Index,Features: Medium Columns,3,braycurtis,0.0674
+DBSCAN,Adjusted Rand Index,Imbalanced (High Imbalance),1,canberra,0.0742
+DBSCAN,Adjusted Rand Index,Imbalanced (High Imbalance),2,cosine,0.0602
+DBSCAN,Adjusted Rand Index,Imbalanced (High Imbalance),3,braycurtis,0.0555
+DBSCAN,Adjusted Rand Index,Size: High Rows,1,canberra,0.1122
+DBSCAN,Adjusted Rand Index,Size: High Rows,2,braycurtis,0.0945
+DBSCAN,Adjusted Rand Index,Size: High Rows,3,cosine,0.0827
+DBSCAN,Adjusted Rand Index,Size: Low Rows,1,kl_divergence,0.0137
+DBSCAN,Adjusted Rand Index,Size: Low Rows,2,chebyshev,0.0126
+DBSCAN,Adjusted Rand Index,Size: Low Rows,3,jensen_shannon,0.0104
+DBSCAN,Adjusted Rand Index,Size: Medium Rows,1,kl_divergence,0.0091
+DBSCAN,Adjusted Rand Index,Size: Medium Rows,2,hamming,0.0077
+DBSCAN,Adjusted Rand Index,Size: Medium Rows,3,canberra,0.0031
+DBSCAN,Calinski-Harabasz Score,Balanced (Low Imbalance),1,braycurtis,1573.7023
+DBSCAN,Calinski-Harabasz Score,Balanced (Low Imbalance),2,chebyshev,1516.0722
+DBSCAN,Calinski-Harabasz Score,Balanced (Low Imbalance),3,jensen_shannon,1469.951
+DBSCAN,Calinski-Harabasz Score,Features: High Columns,1,bhattacharyya,243.6734
+DBSCAN,Calinski-Harabasz Score,Features: High Columns,2,jensen_shannon,243.4514
+DBSCAN,Calinski-Harabasz Score,Features: High Columns,3,kl_divergence,147.3735
+DBSCAN,Calinski-Harabasz Score,Features: Low Columns,1,euclidean,1677.8412
+DBSCAN,Calinski-Harabasz Score,Features: Low Columns,2,minkowski,1677.8412
+DBSCAN,Calinski-Harabasz Score,Features: Low Columns,3,manhattan,1668.3668
+DBSCAN,Calinski-Harabasz Score,Features: Medium Columns,1,jensen_shannon,1864.1713
+DBSCAN,Calinski-Harabasz Score,Features: Medium Columns,2,kl_divergence,1864.0425
+DBSCAN,Calinski-Harabasz Score,Features: Medium Columns,3,bhattacharyya,1863.5535
+DBSCAN,Calinski-Harabasz Score,Imbalanced (High Imbalance),1,bhattacharyya,211.7009
+DBSCAN,Calinski-Harabasz Score,Imbalanced (High Imbalance),2,jensen_shannon,211.4676
+DBSCAN,Calinski-Harabasz Score,Imbalanced (High Imbalance),3,kl_divergence,186.2698
+DBSCAN,Calinski-Harabasz Score,Size: High Rows,1,braycurtis,3154.7805
+DBSCAN,Calinski-Harabasz Score,Size: High Rows,2,chebyshev,2540.2022
+DBSCAN,Calinski-Harabasz Score,Size: High Rows,3,jensen_shannon,2354.0091
+DBSCAN,Calinski-Harabasz Score,Size: Low Rows,1,chebyshev,169.6755
+DBSCAN,Calinski-Harabasz Score,Size: Low Rows,2,total_variation,165.6799
+DBSCAN,Calinski-Harabasz Score,Size: Low Rows,3,jensen_shannon,154.7123
+DBSCAN,Calinski-Harabasz Score,Size: Medium Rows,1,euclidean,184.7707
+DBSCAN,Calinski-Harabasz Score,Size: Medium Rows,2,minkowski,184.7707
+DBSCAN,Calinski-Harabasz Score,Size: Medium Rows,3,total_variation,180.84
+DBSCAN,Davies-Bouldin Score,Balanced (Low Imbalance),1,total_variation,1.2187
+DBSCAN,Davies-Bouldin Score,Balanced (Low Imbalance),2,jensen_shannon,1.2724
+DBSCAN,Davies-Bouldin Score,Balanced (Low Imbalance),3,bhattacharyya,1.2844
+DBSCAN,Davies-Bouldin Score,Features: High Columns,1,earth_movers,0.7611
+DBSCAN,Davies-Bouldin Score,Features: High Columns,2,total_variation,1.0094
+DBSCAN,Davies-Bouldin Score,Features: High Columns,3,manhattan,1.2725
+DBSCAN,Davies-Bouldin Score,Features: Low Columns,1,hamming,1.3801
+DBSCAN,Davies-Bouldin Score,Features: Low Columns,2,total_variation,1.4782
+DBSCAN,Davies-Bouldin Score,Features: Low Columns,3,cosine,1.7406
+DBSCAN,Davies-Bouldin Score,Features: Medium Columns,1,hamming,1.3074
+DBSCAN,Davies-Bouldin Score,Features: Medium Columns,2,total_variation,1.3886
+DBSCAN,Davies-Bouldin Score,Features: Medium Columns,3,jensen_shannon,1.3991
+DBSCAN,Davies-Bouldin Score,Imbalanced (High Imbalance),1,total_variation,1.436
+DBSCAN,Davies-Bouldin Score,Imbalanced (High Imbalance),2,earth_movers,1.5792
+DBSCAN,Davies-Bouldin Score,Imbalanced (High Imbalance),3,manhattan,1.6548
+DBSCAN,Davies-Bouldin Score,Size: High Rows,1,earth_movers,1.0047
+DBSCAN,Davies-Bouldin Score,Size: High Rows,2,jensen_shannon,1.33
+DBSCAN,Davies-Bouldin Score,Size: High Rows,3,bhattacharyya,1.3321
+DBSCAN,Davies-Bouldin Score,Size: Low Rows,1,hamming,0.8989
+DBSCAN,Davies-Bouldin Score,Size: Low Rows,2,total_variation,1.1797
+DBSCAN,Davies-Bouldin Score,Size: Low Rows,3,euclidean,1.3459
+DBSCAN,Davies-Bouldin Score,Size: Medium Rows,1,total_variation,1.4084
+DBSCAN,Davies-Bouldin Score,Size: Medium Rows,2,manhattan,1.7761
+DBSCAN,Davies-Bouldin Score,Size: Medium Rows,3,earth_movers,1.9014
+DBSCAN,Normalized Mutual Info,Balanced (Low Imbalance),1,kl_divergence,0.0469
+DBSCAN,Normalized Mutual Info,Balanced (Low Imbalance),2,hamming,0.0286
+DBSCAN,Normalized Mutual Info,Balanced (Low Imbalance),3,cosine,0.0204
+DBSCAN,Normalized Mutual Info,Features: High Columns,1,hamming,0.0522
+DBSCAN,Normalized Mutual Info,Features: High Columns,2,kl_divergence,0.0478
+DBSCAN,Normalized Mutual Info,Features: High Columns,3,chebyshev,0.0117
+DBSCAN,Normalized Mutual Info,Features: Low Columns,1,kl_divergence,0.0533
+DBSCAN,Normalized Mutual Info,Features: Low Columns,2,euclidean,0.0477
+DBSCAN,Normalized Mutual Info,Features: Low Columns,3,minkowski,0.0477
+DBSCAN,Normalized Mutual Info,Features: Medium Columns,1,canberra,0.0752
+DBSCAN,Normalized Mutual Info,Features: Medium Columns,2,cosine,0.0551
+DBSCAN,Normalized Mutual Info,Features: Medium Columns,3,braycurtis,0.0478
+DBSCAN,Normalized Mutual Info,Imbalanced (High Imbalance),1,canberra,0.0624
+DBSCAN,Normalized Mutual Info,Imbalanced (High Imbalance),2,cosine,0.0585
+DBSCAN,Normalized Mutual Info,Imbalanced (High Imbalance),3,braycurtis,0.0578
+DBSCAN,Normalized Mutual Info,Size: High Rows,1,kl_divergence,0.0926
+DBSCAN,Normalized Mutual Info,Size: High Rows,2,canberra,0.0895
+DBSCAN,Normalized Mutual Info,Size: High Rows,3,braycurtis,0.0734
+DBSCAN,Normalized Mutual Info,Size: Low Rows,1,manhattan,0.0389
+DBSCAN,Normalized Mutual Info,Size: Low Rows,2,chebyshev,0.0358
+DBSCAN,Normalized Mutual Info,Size: Low Rows,3,bhattacharyya,0.0347
+DBSCAN,Normalized Mutual Info,Size: Medium Rows,1,hamming,0.0362
+DBSCAN,Normalized Mutual Info,Size: Medium Rows,2,kl_divergence,0.0225
+DBSCAN,Normalized Mutual Info,Size: Medium Rows,3,cosine,0.0188
+DBSCAN,Silhouette Score,Balanced (Low Imbalance),1,bhattacharyya,0.7058
+DBSCAN,Silhouette Score,Balanced (Low Imbalance),2,kl_divergence,0.6567
+DBSCAN,Silhouette Score,Balanced (Low Imbalance),3,cosine,0.566
+DBSCAN,Silhouette Score,Features: High Columns,1,kl_divergence,0.5797
+DBSCAN,Silhouette Score,Features: High Columns,2,bhattacharyya,0.5744
+DBSCAN,Silhouette Score,Features: High Columns,3,earth_movers,0.4725
+DBSCAN,Silhouette Score,Features: Low Columns,1,kl_divergence,0.7333
+DBSCAN,Silhouette Score,Features: Low Columns,2,bhattacharyya,0.7175
+DBSCAN,Silhouette Score,Features: Low Columns,3,cosine,0.6425
+DBSCAN,Silhouette Score,Features: Medium Columns,1,bhattacharyya,0.6045
+DBSCAN,Silhouette Score,Features: Medium Columns,2,kl_divergence,0.5762
+DBSCAN,Silhouette Score,Features: Medium Columns,3,cosine,0.5031
+DBSCAN,Silhouette Score,Imbalanced (High Imbalance),1,kl_divergence,0.5966
+DBSCAN,Silhouette Score,Imbalanced (High Imbalance),2,bhattacharyya,0.5479
+DBSCAN,Silhouette Score,Imbalanced (High Imbalance),3,cosine,0.496
+DBSCAN,Silhouette Score,Size: High Rows,1,bhattacharyya,0.7424
+DBSCAN,Silhouette Score,Size: High Rows,2,kl_divergence,0.7264
+DBSCAN,Silhouette Score,Size: High Rows,3,braycurtis,0.5964
+DBSCAN,Silhouette Score,Size: Low Rows,1,bhattacharyya,0.6047
+DBSCAN,Silhouette Score,Size: Low Rows,2,kl_divergence,0.5451
+DBSCAN,Silhouette Score,Size: Low Rows,3,cosine,0.5176
+DBSCAN,Silhouette Score,Size: Medium Rows,1,kl_divergence,0.6116
+DBSCAN,Silhouette Score,Size: Medium Rows,2,bhattacharyya,0.5585
+DBSCAN,Silhouette Score,Size: Medium Rows,3,cosine,0.5416
+K-Medoids,Adjusted Rand Index,Balanced (Low Imbalance),1,manhattan,0.0801
+K-Medoids,Adjusted Rand Index,Balanced (Low Imbalance),2,euclidean,0.076
+K-Medoids,Adjusted Rand Index,Balanced (Low Imbalance),3,minkowski,0.076
+K-Medoids,Adjusted Rand Index,Features: High Columns,1,jensen_shannon,0.0534
+K-Medoids,Adjusted Rand Index,Features: High Columns,2,bhattacharyya,0.052
+K-Medoids,Adjusted Rand Index,Features: High Columns,3,euclidean,0.0469
+K-Medoids,Adjusted Rand Index,Features: Low Columns,1,euclidean,0.1879
+K-Medoids,Adjusted Rand Index,Features: Low Columns,2,minkowski,0.1879
+K-Medoids,Adjusted Rand Index,Features: Low Columns,3,manhattan,0.165
+K-Medoids,Adjusted Rand Index,Features: Medium Columns,1,cosine,0.0932
+K-Medoids,Adjusted Rand Index,Features: Medium Columns,2,manhattan,0.0896
+K-Medoids,Adjusted Rand Index,Features: Medium Columns,3,euclidean,0.0829
+K-Medoids,Adjusted Rand Index,Imbalanced (High Imbalance),1,euclidean,0.1424
+K-Medoids,Adjusted Rand Index,Imbalanced (High Imbalance),2,minkowski,0.1424
+K-Medoids,Adjusted Rand Index,Imbalanced (High Imbalance),3,cosine,0.1196
+K-Medoids,Adjusted Rand Index,Size: High Rows,1,cosine,0.1342
+K-Medoids,Adjusted Rand Index,Size: High Rows,2,euclidean,0.1134
+K-Medoids,Adjusted Rand Index,Size: High Rows,3,minkowski,0.1134
+K-Medoids,Adjusted Rand Index,Size: Low Rows,1,manhattan,0.1398
+K-Medoids,Adjusted Rand Index,Size: Low Rows,2,euclidean,0.1388
+K-Medoids,Adjusted Rand Index,Size: Low Rows,3,minkowski,0.1388
+K-Medoids,Adjusted Rand Index,Size: Medium Rows,1,euclidean,0.062
+K-Medoids,Adjusted Rand Index,Size: Medium Rows,2,minkowski,0.062
+K-Medoids,Adjusted Rand Index,Size: Medium Rows,3,jensen_shannon,0.0453
+K-Medoids,Calinski-Harabasz Score,Balanced (Low Imbalance),1,total_variation,1577.2331
+K-Medoids,Calinski-Harabasz Score,Balanced (Low Imbalance),2,cosine,1435.3993
+K-Medoids,Calinski-Harabasz Score,Balanced (Low Imbalance),3,kl_divergence,1405.5705
+K-Medoids,Calinski-Harabasz Score,Features: High Columns,1,earth_movers,1423.6551
+K-Medoids,Calinski-Harabasz Score,Features: High Columns,2,total_variation,1231.2908
+K-Medoids,Calinski-Harabasz Score,Features: High Columns,3,bhattacharyya,712.7017
+K-Medoids,Calinski-Harabasz Score,Features: Low Columns,1,cosine,4023.4402
+K-Medoids,Calinski-Harabasz Score,Features: Low Columns,2,manhattan,3837.2743
+K-Medoids,Calinski-Harabasz Score,Features: Low Columns,3,euclidean,3632.2078
+K-Medoids,Calinski-Harabasz Score,Features: Medium Columns,1,total_variation,794.3494
+K-Medoids,Calinski-Harabasz Score,Features: Medium Columns,2,cosine,787.9922
+K-Medoids,Calinski-Harabasz Score,Features: Medium Columns,3,earth_movers,762.9138
+K-Medoids,Calinski-Harabasz Score,Imbalanced (High Imbalance),1,cosine,2336.5246
+K-Medoids,Calinski-Harabasz Score,Imbalanced (High Imbalance),2,euclidean,2328.2537
+K-Medoids,Calinski-Harabasz Score,Imbalanced (High Imbalance),3,minkowski,2328.2537
+K-Medoids,Calinski-Harabasz Score,Size: High Rows,1,cosine,4666.4264
+K-Medoids,Calinski-Harabasz Score,Size: High Rows,2,manhattan,4538.5718
+K-Medoids,Calinski-Harabasz Score,Size: High Rows,3,euclidean,4489.0935
+K-Medoids,Calinski-Harabasz Score,Size: Low Rows,1,total_variation,384.0812
+K-Medoids,Calinski-Harabasz Score,Size: Low Rows,2,earth_movers,381.2319
+K-Medoids,Calinski-Harabasz Score,Size: Low Rows,3,cosine,336.3389
+K-Medoids,Calinski-Harabasz Score,Size: Medium Rows,1,earth_movers,531.7447
+K-Medoids,Calinski-Harabasz Score,Size: Medium Rows,2,total_variation,506.5369
+K-Medoids,Calinski-Harabasz Score,Size: Medium Rows,3,cosine,318.8395
+K-Medoids,Davies-Bouldin Score,Balanced (Low Imbalance),1,total_variation,1.4691
+K-Medoids,Davies-Bouldin Score,Balanced (Low Imbalance),2,earth_movers,1.5291
+K-Medoids,Davies-Bouldin Score,Balanced (Low Imbalance),3,jensen_shannon,1.696
+K-Medoids,Davies-Bouldin Score,Features: High Columns,1,earth_movers,1.684
+K-Medoids,Davies-Bouldin Score,Features: High Columns,2,total_variation,2.5948
+K-Medoids,Davies-Bouldin Score,Features: High Columns,3,cosine,2.6749
+K-Medoids,Davies-Bouldin Score,Features: Low Columns,1,kl_divergence,1.5695
+K-Medoids,Davies-Bouldin Score,Features: Low Columns,2,euclidean,1.6516
+K-Medoids,Davies-Bouldin Score,Features: Low Columns,3,minkowski,1.6516
+K-Medoids,Davies-Bouldin Score,Features: Medium Columns,1,cosine,1.479
+K-Medoids,Davies-Bouldin Score,Features: Medium Columns,2,earth_movers,1.5071
+K-Medoids,Davies-Bouldin Score,Features: Medium Columns,3,total_variation,1.6048
+K-Medoids,Davies-Bouldin Score,Imbalanced (High Imbalance),1,earth_movers,1.7861
+K-Medoids,Davies-Bouldin Score,Imbalanced (High Imbalance),2,cosine,2.3248
+K-Medoids,Davies-Bouldin Score,Imbalanced (High Imbalance),3,euclidean,2.4682
+K-Medoids,Davies-Bouldin Score,Size: High Rows,1,euclidean,1.6707
+K-Medoids,Davies-Bouldin Score,Size: High Rows,2,minkowski,1.6707
+K-Medoids,Davies-Bouldin Score,Size: High Rows,3,total_variation,1.8086
+K-Medoids,Davies-Bouldin Score,Size: Low Rows,1,earth_movers,1.4642
+K-Medoids,Davies-Bouldin Score,Size: Low Rows,2,cosine,2.201
+K-Medoids,Davies-Bouldin Score,Size: Low Rows,3,jensen_shannon,2.2313
+K-Medoids,Davies-Bouldin Score,Size: Medium Rows,1,earth_movers,1.6365
+K-Medoids,Davies-Bouldin Score,Size: Medium Rows,2,total_variation,1.7717
+K-Medoids,Davies-Bouldin Score,Size: Medium Rows,3,cosine,1.9177
+K-Medoids,Normalized Mutual Info,Balanced (Low Imbalance),1,euclidean,0.1074
+K-Medoids,Normalized Mutual Info,Balanced (Low Imbalance),2,minkowski,0.1074
+K-Medoids,Normalized Mutual Info,Balanced (Low Imbalance),3,cosine,0.1074
+K-Medoids,Normalized Mutual Info,Features: High Columns,1,euclidean,0.0936
+K-Medoids,Normalized Mutual Info,Features: High Columns,2,minkowski,0.0936
+K-Medoids,Normalized Mutual Info,Features: High Columns,3,bhattacharyya,0.0852
+K-Medoids,Normalized Mutual Info,Features: Low Columns,1,euclidean,0.2258
+K-Medoids,Normalized Mutual Info,Features: Low Columns,2,minkowski,0.2258
+K-Medoids,Normalized Mutual Info,Features: Low Columns,3,manhattan,0.2044
+K-Medoids,Normalized Mutual Info,Features: Medium Columns,1,manhattan,0.0929
+K-Medoids,Normalized Mutual Info,Features: Medium Columns,2,euclidean,0.0896
+K-Medoids,Normalized Mutual Info,Features: Medium Columns,3,minkowski,0.0896
+K-Medoids,Normalized Mutual Info,Imbalanced (High Imbalance),1,euclidean,0.1747
+K-Medoids,Normalized Mutual Info,Imbalanced (High Imbalance),2,minkowski,0.1747
+K-Medoids,Normalized Mutual Info,Imbalanced (High Imbalance),3,kl_divergence,0.1641
+K-Medoids,Normalized Mutual Info,Size: High Rows,1,cosine,0.1518
+K-Medoids,Normalized Mutual Info,Size: High Rows,2,euclidean,0.1456
+K-Medoids,Normalized Mutual Info,Size: High Rows,3,minkowski,0.1456
+K-Medoids,Normalized Mutual Info,Size: Low Rows,1,euclidean,0.1723
+K-Medoids,Normalized Mutual Info,Size: Low Rows,2,minkowski,0.1723
+K-Medoids,Normalized Mutual Info,Size: Low Rows,3,manhattan,0.1683
+K-Medoids,Normalized Mutual Info,Size: Medium Rows,1,euclidean,0.0913
+K-Medoids,Normalized Mutual Info,Size: Medium Rows,2,minkowski,0.0913
+K-Medoids,Normalized Mutual Info,Size: Medium Rows,3,jensen_shannon,0.0691
+K-Medoids,Silhouette Score,Balanced (Low Imbalance),1,earth_movers,0.4047
+K-Medoids,Silhouette Score,Balanced (Low Imbalance),2,kl_divergence,0.3908
+K-Medoids,Silhouette Score,Balanced (Low Imbalance),3,bhattacharyya,0.364
+K-Medoids,Silhouette Score,Features: High Columns,1,earth_movers,0.4337
+K-Medoids,Silhouette Score,Features: High Columns,2,kl_divergence,0.2678
+K-Medoids,Silhouette Score,Features: High Columns,3,cosine,0.2598
+K-Medoids,Silhouette Score,Features: Low Columns,1,cosine,0.3566
+K-Medoids,Silhouette Score,Features: Low Columns,2,earth_movers,0.3528
+K-Medoids,Silhouette Score,Features: Low Columns,3,bhattacharyya,0.2749
+K-Medoids,Silhouette Score,Features: Medium Columns,1,cosine,0.4659
+K-Medoids,Silhouette Score,Features: Medium Columns,2,earth_movers,0.3653
+K-Medoids,Silhouette Score,Features: Medium Columns,3,bhattacharyya,0.3637
+K-Medoids,Silhouette Score,Imbalanced (High Imbalance),1,cosine,0.3727
+K-Medoids,Silhouette Score,Imbalanced (High Imbalance),2,earth_movers,0.3644
+K-Medoids,Silhouette Score,Imbalanced (High Imbalance),3,euclidean,0.1957
+K-Medoids,Silhouette Score,Size: High Rows,1,cosine,0.4005
+K-Medoids,Silhouette Score,Size: High Rows,2,kl_divergence,0.3848
+K-Medoids,Silhouette Score,Size: High Rows,3,bhattacharyya,0.3781
+K-Medoids,Silhouette Score,Size: Low Rows,1,earth_movers,0.4295
+K-Medoids,Silhouette Score,Size: Low Rows,2,cosine,0.3709
+K-Medoids,Silhouette Score,Size: Low Rows,3,bhattacharyya,0.2658
+K-Medoids,Silhouette Score,Size: Medium Rows,1,earth_movers,0.3775
+K-Medoids,Silhouette Score,Size: Medium Rows,2,cosine,0.2799
+K-Medoids,Silhouette Score,Size: Medium Rows,3,bhattacharyya,0.218
+KNN,Accuracy,Balanced (Low Imbalance),1,canberra,0.6814
+KNN,Accuracy,Balanced (Low Imbalance),2,braycurtis,0.6785
+KNN,Accuracy,Balanced (Low Imbalance),3,manhattan,0.6763
+KNN,Accuracy,Features: High Columns,1,braycurtis,0.8402
+KNN,Accuracy,Features: High Columns,2,canberra,0.8395
+KNN,Accuracy,Features: High Columns,3,manhattan,0.8359
+KNN,Accuracy,Features: Low Columns,1,manhattan,0.632
+KNN,Accuracy,Features: Low Columns,2,braycurtis,0.6312
+KNN,Accuracy,Features: Low Columns,3,canberra,0.6288
+KNN,Accuracy,Features: Medium Columns,1,canberra,0.818
+KNN,Accuracy,Features: Medium Columns,2,jensen_shannon,0.815
+KNN,Accuracy,Features: Medium Columns,3,bhattacharyya,0.8135
+KNN,Accuracy,Imbalanced (High Imbalance),1,canberra,0.8428
+KNN,Accuracy,Imbalanced (High Imbalance),2,braycurtis,0.8382
+KNN,Accuracy,Imbalanced (High Imbalance),3,manhattan,0.8359
+KNN,Accuracy,Size: High Rows,1,canberra,0.8063
+KNN,Accuracy,Size: High Rows,2,braycurtis,0.803
+KNN,Accuracy,Size: High Rows,3,manhattan,0.8025
+KNN,Accuracy,Size: Low Rows,1,canberra,0.8157
+KNN,Accuracy,Size: Low Rows,2,braycurtis,0.8068
+KNN,Accuracy,Size: Low Rows,3,manhattan,0.8036
+KNN,Accuracy,Size: Medium Rows,1,braycurtis,0.6652
+KNN,Accuracy,Size: Medium Rows,2,canberra,0.6643
+KNN,Accuracy,Size: Medium Rows,3,manhattan,0.6623
+KNN,F1 Score,Balanced (Low Imbalance),1,canberra,0.6761
+KNN,F1 Score,Balanced (Low Imbalance),2,braycurtis,0.6741
+KNN,F1 Score,Balanced (Low Imbalance),3,manhattan,0.6719
+KNN,F1 Score,Features: High Columns,1,braycurtis,0.8281
+KNN,F1 Score,Features: High Columns,2,canberra,0.8281
+KNN,F1 Score,Features: High Columns,3,manhattan,0.8236
+KNN,F1 Score,Features: Low Columns,1,manhattan,0.6241
+KNN,F1 Score,Features: Low Columns,2,braycurtis,0.6236
+KNN,F1 Score,Features: Low Columns,3,canberra,0.6203
+KNN,F1 Score,Features: Medium Columns,1,canberra,0.8116
+KNN,F1 Score,Features: Medium Columns,2,jensen_shannon,0.8093
+KNN,F1 Score,Features: Medium Columns,3,bhattacharyya,0.8078
+KNN,F1 Score,Imbalanced (High Imbalance),1,canberra,0.8305
+KNN,F1 Score,Imbalanced (High Imbalance),2,braycurtis,0.8254
+KNN,F1 Score,Imbalanced (High Imbalance),3,manhattan,0.8228
+KNN,F1 Score,Size: High Rows,1,canberra,0.8002
+KNN,F1 Score,Size: High Rows,2,braycurtis,0.7946
+KNN,F1 Score,Size: High Rows,3,manhattan,0.7938
+KNN,F1 Score,Size: Low Rows,1,canberra,0.8063
+KNN,F1 Score,Size: Low Rows,2,braycurtis,0.7987
+KNN,F1 Score,Size: Low Rows,3,manhattan,0.7948
+KNN,F1 Score,Size: Medium Rows,1,braycurtis,0.6559
+KNN,F1 Score,Size: Medium Rows,2,canberra,0.6534
+KNN,F1 Score,Size: Medium Rows,3,manhattan,0.6534
+KNN,Precision,Balanced (Low Imbalance),1,canberra,0.6775
+KNN,Precision,Balanced (Low Imbalance),2,braycurtis,0.6754
+KNN,Precision,Balanced (Low Imbalance),3,manhattan,0.6734
+KNN,Precision,Features: High Columns,1,braycurtis,0.833
+KNN,Precision,Features: High Columns,2,canberra,0.8314
+KNN,Precision,Features: High Columns,3,manhattan,0.8236
+KNN,Precision,Features: Low Columns,1,manhattan,0.6282
+KNN,Precision,Features: Low Columns,2,braycurtis,0.6272
+KNN,Precision,Features: Low Columns,3,canberra,0.6229
+KNN,Precision,Features: Medium Columns,1,canberra,0.8091
+KNN,Precision,Features: Medium Columns,2,jensen_shannon,0.8071
+KNN,Precision,Features: Medium Columns,3,kl_divergence,0.8053
+KNN,Precision,Imbalanced (High Imbalance),1,canberra,0.8315
+KNN,Precision,Imbalanced (High Imbalance),2,braycurtis,0.8285
+KNN,Precision,Imbalanced (High Imbalance),3,manhattan,0.8229
+KNN,Precision,Size: High Rows,1,canberra,0.8002
+KNN,Precision,Size: High Rows,2,braycurtis,0.7951
+KNN,Precision,Size: High Rows,3,manhattan,0.7944
+KNN,Precision,Size: Low Rows,1,canberra,0.809
+KNN,Precision,Size: Low Rows,2,braycurtis,0.8037
+KNN,Precision,Size: Low Rows,3,manhattan,0.7959
+KNN,Precision,Size: Medium Rows,1,braycurtis,0.657
+KNN,Precision,Size: Medium Rows,2,canberra,0.6542
+KNN,Precision,Size: Medium Rows,3,manhattan,0.6541
+KNN,Recall,Balanced (Low Imbalance),1,canberra,0.6814
+KNN,Recall,Balanced (Low Imbalance),2,braycurtis,0.6785
+KNN,Recall,Balanced (Low Imbalance),3,manhattan,0.6763
+KNN,Recall,Features: High Columns,1,braycurtis,0.8402
+KNN,Recall,Features: High Columns,2,canberra,0.8395
+KNN,Recall,Features: High Columns,3,manhattan,0.8359
+KNN,Recall,Features: Low Columns,1,manhattan,0.632
+KNN,Recall,Features: Low Columns,2,braycurtis,0.6312
+KNN,Recall,Features: Low Columns,3,canberra,0.6288
+KNN,Recall,Features: Medium Columns,1,canberra,0.818
+KNN,Recall,Features: Medium Columns,2,jensen_shannon,0.815
+KNN,Recall,Features: Medium Columns,3,bhattacharyya,0.8135
+KNN,Recall,Imbalanced (High Imbalance),1,canberra,0.8428
+KNN,Recall,Imbalanced (High Imbalance),2,braycurtis,0.8382
+KNN,Recall,Imbalanced (High Imbalance),3,manhattan,0.8359
+KNN,Recall,Size: High Rows,1,canberra,0.8063
+KNN,Recall,Size: High Rows,2,braycurtis,0.803
+KNN,Recall,Size: High Rows,3,manhattan,0.8025
+KNN,Recall,Size: Low Rows,1,canberra,0.8157
+KNN,Recall,Size: Low Rows,2,braycurtis,0.8068
+KNN,Recall,Size: Low Rows,3,manhattan,0.8036
+KNN,Recall,Size: Medium Rows,1,braycurtis,0.6652
+KNN,Recall,Size: Medium Rows,2,canberra,0.6643
+KNN,Recall,Size: Medium Rows,3,manhattan,0.6623
+SVM,Accuracy,Balanced (Low Imbalance),1,canberra,0.6938
+SVM,Accuracy,Balanced (Low Imbalance),2,braycurtis,0.6895
+SVM,Accuracy,Balanced (Low Imbalance),3,manhattan,0.6889
+SVM,Accuracy,Features: High Columns,1,braycurtis,0.8489
+SVM,Accuracy,Features: High Columns,2,manhattan,0.8483
+SVM,Accuracy,Features: High Columns,3,canberra,0.8478
+SVM,Accuracy,Features: Low Columns,1,canberra,0.6386
+SVM,Accuracy,Features: Low Columns,2,manhattan,0.6366
+SVM,Accuracy,Features: Low Columns,3,braycurtis,0.6357
+SVM,Accuracy,Features: Medium Columns,1,canberra,0.7986
+SVM,Accuracy,Features: Medium Columns,2,jensen_shannon,0.7978
+SVM,Accuracy,Features: Medium Columns,3,manhattan,0.7888
+SVM,Accuracy,Imbalanced (High Imbalance),1,canberra,0.8295
+SVM,Accuracy,Imbalanced (High Imbalance),2,manhattan,0.8269
+SVM,Accuracy,Imbalanced (High Imbalance),3,braycurtis,0.8259
+SVM,Accuracy,Size: High Rows,1,canberra,0.7951
+SVM,Accuracy,Size: High Rows,2,manhattan,0.7926
+SVM,Accuracy,Size: High Rows,3,braycurtis,0.7921
+SVM,Accuracy,Size: Low Rows,1,canberra,0.8133
+SVM,Accuracy,Size: Low Rows,2,braycurtis,0.8109
+SVM,Accuracy,Size: Low Rows,3,manhattan,0.8088
+SVM,Accuracy,Size: Medium Rows,1,canberra,0.6765
+SVM,Accuracy,Size: Medium Rows,2,jensen_shannon,0.6724
+SVM,Accuracy,Size: Medium Rows,3,manhattan,0.6723
+SVM,F1 Score,Balanced (Low Imbalance),1,canberra,0.6946
+SVM,F1 Score,Balanced (Low Imbalance),2,braycurtis,0.6908
+SVM,F1 Score,Balanced (Low Imbalance),3,manhattan,0.6903
+SVM,F1 Score,Features: High Columns,1,braycurtis,0.8518
+SVM,F1 Score,Features: High Columns,2,manhattan,0.851
+SVM,F1 Score,Features: High Columns,3,canberra,0.8501
+SVM,F1 Score,Features: Low Columns,1,canberra,0.6405
+SVM,F1 Score,Features: Low Columns,2,manhattan,0.6381
+SVM,F1 Score,Features: Low Columns,3,braycurtis,0.6375
+SVM,F1 Score,Features: Medium Columns,1,canberra,0.804
+SVM,F1 Score,Features: Medium Columns,2,jensen_shannon,0.8035
+SVM,F1 Score,Features: Medium Columns,3,braycurtis,0.7962
+SVM,F1 Score,Imbalanced (High Imbalance),1,canberra,0.8352
+SVM,F1 Score,Imbalanced (High Imbalance),2,manhattan,0.8333
+SVM,F1 Score,Imbalanced (High Imbalance),3,braycurtis,0.8329
+SVM,F1 Score,Size: High Rows,1,canberra,0.7985
+SVM,F1 Score,Size: High Rows,2,manhattan,0.7963
+SVM,F1 Score,Size: High Rows,3,braycurtis,0.7955
+SVM,F1 Score,Size: Low Rows,1,canberra,0.8157
+SVM,F1 Score,Size: Low Rows,2,braycurtis,0.8138
+SVM,F1 Score,Size: Low Rows,3,manhattan,0.8113
+SVM,F1 Score,Size: Medium Rows,1,canberra,0.6804
+SVM,F1 Score,Size: Medium Rows,2,manhattan,0.6777
+SVM,F1 Score,Size: Medium Rows,3,jensen_shannon,0.6762
+SVM,Precision,Balanced (Low Imbalance),1,canberra,0.7093
+SVM,Precision,Balanced (Low Imbalance),2,braycurtis,0.708
+SVM,Precision,Balanced (Low Imbalance),3,manhattan,0.707
+SVM,Precision,Features: High Columns,1,braycurtis,0.8656
+SVM,Precision,Features: High Columns,2,manhattan,0.8647
+SVM,Precision,Features: High Columns,3,canberra,0.8638
+SVM,Precision,Features: Low Columns,1,canberra,0.6583
+SVM,Precision,Features: Low Columns,2,braycurtis,0.6575
+SVM,Precision,Features: Low Columns,3,manhattan,0.6567
+SVM,Precision,Features: Medium Columns,1,jensen_shannon,0.8312
+SVM,Precision,Features: Medium Columns,2,canberra,0.8285
+SVM,Precision,Features: Medium Columns,3,manhattan,0.8255
+SVM,Precision,Imbalanced (High Imbalance),1,canberra,0.8578
+SVM,Precision,Imbalanced (High Imbalance),2,braycurtis,0.8577
+SVM,Precision,Imbalanced (High Imbalance),3,manhattan,0.8576
+SVM,Precision,Size: High Rows,1,manhattan,0.8099
+SVM,Precision,Size: High Rows,2,canberra,0.8098
+SVM,Precision,Size: High Rows,3,braycurtis,0.8093
+SVM,Precision,Size: Low Rows,1,canberra,0.8386
+SVM,Precision,Size: Low Rows,2,braycurtis,0.8386
+SVM,Precision,Size: Low Rows,3,euclidean,0.8356
+SVM,Precision,Size: Medium Rows,1,canberra,0.7021
+SVM,Precision,Size: Medium Rows,2,manhattan,0.7015
+SVM,Precision,Size: Medium Rows,3,braycurtis,0.7008
+SVM,Recall,Balanced (Low Imbalance),1,canberra,0.6938
+SVM,Recall,Balanced (Low Imbalance),2,braycurtis,0.6895
+SVM,Recall,Balanced (Low Imbalance),3,manhattan,0.6889
+SVM,Recall,Features: High Columns,1,braycurtis,0.8489
+SVM,Recall,Features: High Columns,2,manhattan,0.8483
+SVM,Recall,Features: High Columns,3,canberra,0.8478
+SVM,Recall,Features: Low Columns,1,canberra,0.6386
+SVM,Recall,Features: Low Columns,2,manhattan,0.6366
+SVM,Recall,Features: Low Columns,3,braycurtis,0.6357
+SVM,Recall,Features: Medium Columns,1,canberra,0.7986
+SVM,Recall,Features: Medium Columns,2,jensen_shannon,0.7978
+SVM,Recall,Features: Medium Columns,3,manhattan,0.7888
+SVM,Recall,Imbalanced (High Imbalance),1,canberra,0.8295
+SVM,Recall,Imbalanced (High Imbalance),2,manhattan,0.8269
+SVM,Recall,Imbalanced (High Imbalance),3,braycurtis,0.8259
+SVM,Recall,Size: High Rows,1,canberra,0.7951
+SVM,Recall,Size: High Rows,2,manhattan,0.7926
+SVM,Recall,Size: High Rows,3,braycurtis,0.7921
+SVM,Recall,Size: Low Rows,1,canberra,0.8133
+SVM,Recall,Size: Low Rows,2,braycurtis,0.8109
+SVM,Recall,Size: Low Rows,3,manhattan,0.8088
+SVM,Recall,Size: Medium Rows,1,canberra,0.6765
+SVM,Recall,Size: Medium Rows,2,jensen_shannon,0.6724
+SVM,Recall,Size: Medium Rows,3,manhattan,0.6723

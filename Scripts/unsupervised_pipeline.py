@@ -68,7 +68,15 @@ def evaluate_unsupervised(X, dist_matrix, y_true, distance_metric_name):
         # Heuristic: Set eps to the 10th percentile of all non-zero distances.
         # This helps DBSCAN adapt to the varying scales of probabilistic distances.
         non_zero_dists = dist_matrix[dist_matrix > 0]
-        eps_heuristic = np.percentile(non_zero_dists, 10) if len(non_zero_dists) > 0 else 0.5
+        
+        if len(non_zero_dists) > 0:
+            eps_heuristic = np.percentile(non_zero_dists, 10)
+            # FALLBACK: If the 10th percentile is exactly 0.0 (common in discrete metrics like Hamming), 
+            # fallback to the mean of non-zero distances so DBSCAN can actually form clusters.
+            if eps_heuristic == 0.0:
+                eps_heuristic = np.mean(non_zero_dists)
+        else:
+            eps_heuristic = 0.5
         
         dbscan = DBSCAN(eps=eps_heuristic, min_samples=5, metric='precomputed')
         dbscan_labels = dbscan.fit_predict(dist_matrix)

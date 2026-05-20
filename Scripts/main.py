@@ -103,14 +103,25 @@ def run_experiments():
             # =========================================================
             # PART B: PROBABILISTIC METRICS (on Slack Normalised Data)
             # =========================================================
+            X_prob_input = X_slk
+            y_prob_input = y_slk
+            
+            if len(X_slk) > 5000:
+                print(f"  [!] {base_filename} is large ({len(X_slk)} rows).")
+                print(f"      Subsampling to 5000 rows for probabilistic metrics...")
+                X_prob_input = X_slk.sample(n=5000, random_state=42)
+                y_prob_input = y_slk.loc[X_prob_input.index]
+            # -----------------------------
+
             for metric in PROBABILISTIC_METRICS:
                 try:
-                    dist_matrix = compute_distance_matrix(X_slk, metric)
+                    # Use the subsampled data (X_prob_input) instead of X_slk
+                    dist_matrix = compute_distance_matrix(X_prob_input, metric)
                     
                     # Supervised
-                    sup_res = evaluate_supervised(dist_matrix, y_slk, metric)
-                    # Unsupervised (pass X_slk for DB/CH score calculations)
-                    unsup_res = evaluate_unsupervised(X_slk, dist_matrix, y_slk, metric)
+                    sup_res = evaluate_supervised(dist_matrix, y_prob_input, metric)
+                    # Unsupervised
+                    unsup_res = evaluate_unsupervised(X_prob_input, dist_matrix, y_prob_input, metric)
                     
                     # Tag results with dataset info and merge
                     for res in sup_res + unsup_res:

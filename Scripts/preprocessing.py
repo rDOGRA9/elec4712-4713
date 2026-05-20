@@ -76,12 +76,25 @@ def preprocess_for_pairwise(df: pd.DataFrame, label_col: str, encoding_method: s
     df_processed.dropna(inplace=True)
     target_series = target_series.loc[df_processed.index]
     
-    col_max = df_processed.max().replace(0, 1) 
-    num_columns = df_processed.shape[1]
-    df_normalized = df_processed.div(col_max * num_columns, axis=1)
+    # Convert all boolean/integer data to floats to safely perform math
+    df_processed = df_processed.astype(float)
+    # 1. Apply Min-Max Scaling to ensure all values are between [0, 1]
+    # This removes negative values from features like Skewness/Kurtosis
+    df_min = df_processed.min()
+    df_max = df_processed.max()
+    column_range = (df_max - df_min).replace(0, 1) # Prevent division by zero
+    df_min_max = (df_processed - df_min) / column_range
+
+    # 2. Divide by the total number of columns 
+    # This ensures the sum of all features in a row is <= 1.0
+    num_columns = df_min_max.shape[1]
+    df_normalized = df_min_max / num_columns
     
+    # 3. Add the slack variable 'Adjusted_p'
+    # This forces the row sum to be exactly 1.0 (a valid probability distribution)
     row_sums = df_normalized.sum(axis=1)
-    df_normalized['Adjusted_p'] = 1 - row_sums
+    df_normalized['Adjusted_p'] = 1.0 - row_sums
+    # ------------------------------------
     
     return target_series, df_normalized
 
